@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ease-snappy: cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: #0f1115;
+    color: #e5e7eb;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgba(245, 158, 11, 0.24);
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@utility route-enter {
+  animation: route-in 180ms var(--ease-snappy) both;
+}
+
+@keyframes route-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media print {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm 8mm;
+  }
+
+  .receipt-paper {
+    width: 80mm;
+    max-width: 80mm;
+    margin: 0 auto;
+    font-family: "Courier New", "Consolas", "Menlo", monospace;
+    color: #111827;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  .receipt-paper * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .receipt-header-block {
+    display: block;
+    border-bottom-style: dashed;
+    padding-bottom: 3mm;
+  }
+
+  .receipt-kicker {
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    margin: 0;
+  }
+
+  .receipt-title {
+    margin-top: 1.5mm;
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 13pt;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .receipt-meta,
+  .receipt-note,
+  .receipt-detail-note,
+  .receipt-transfer-text {
+    font-size: 8.5pt !important;
+    line-height: 1.35;
+  }
+
+  .receipt-meta {
+    margin-top: 2mm;
+    display: block;
+  }
+
+  .receipt-note {
+    margin-top: 2.5mm;
+  }
+
+  .receipt-section {
+    margin-top: 4mm !important;
+  }
+
+  .receipt-section-title {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 9.5pt !important;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #9ca3af;
+    padding-bottom: 1.5mm;
+  }
+
+  .receipt-list,
+  .receipt-transfer-list,
+  .receipt-detail-list {
+    gap: 1.5mm !important;
+  }
+
+  .receipt-line-item,
+  .receipt-transfer-line,
+  .receipt-person-card,
+  .receipt-detail-line,
+  .receipt-explain-line,
+  .receipt-empty {
+    border-radius: 0 !important;
+    border-style: dashed !important;
+    border-color: #d1d5db !important;
+    background: transparent !important;
+    padding: 2.2mm 0 !important;
+  }
+
+  .receipt-line-item,
+  .receipt-transfer-line {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 4mm !important;
+  }
+
+  .receipt-item-name,
+  .receipt-person-name {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 10pt !important;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  .receipt-item-sub,
+  .receipt-summary-line {
+    font-size: 8.5pt !important;
+    line-height: 1.35;
+  }
+
+  .receipt-person-card {
+    break-inside: avoid;
+    padding-top: 2.5mm !important;
+    padding-bottom: 2.5mm !important;
+  }
+
+  .receipt-person-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 4mm !important;
+    border-bottom-style: dashed !important;
+    padding-bottom: 2mm !important;
+  }
+
+  .receipt-person-total,
+  .receipt-amount {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 10pt !important;
+    line-height: 1.2;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .receipt-detail-line,
+  .receipt-explain-line {
+    gap: 1mm !important;
+  }
+
+  .receipt-empty {
+    text-align: left;
+  }
+}
